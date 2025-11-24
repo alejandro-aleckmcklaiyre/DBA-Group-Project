@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HRIS — Applicant Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/applicant.css">
+  </head>
+  <body class="bg-light">
+    <main class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h4 class="card-title">Applicant Registration</h4>
+              <form id="applicantForm" novalidate>
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label class="form-label">First Name</label>
+                    <input type="text" id="first_name" class="form-control" required>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" id="last_name" class="form-control" required>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Resume (URL)</label>
+                  <input type="url" id="resume" class="form-control">
+                </div>
+                <div class="d-grid">
+                  <button id="registerBtn" class="btn btn-primary" type="submit">Register</button>
+                </div>
+              </form>
+              <hr>
+              <h6>Your Application Status</h6>
+              <div id="applicationStatus" class="mt-2 text-muted">Not registered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="../js/applicant.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  <!--
+    Laravel migration notes:
+    - Move form to `resources/views/applicant/register.blade.php` and use `@csrf`.
+    - Controller: `ApplicantController@store` (POST /applicants).
+  -->
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HRIS — Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">HRIS Admin</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-4">
+      <h3>Maintenance</h3>
+      <p class="text-muted">Full CRUD: employees, positions, departments</p>
+
+      <section id="employeesSection" class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h5>Employees</h5>
+          <button id="addEmployeeBtn" class="btn btn-sm btn-success">Add Employee</button>
+        </div>
+        <div id="employeesTableContainer"></div>
+      </section>
+
+      <section id="positionsSection" class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h5>Positions</h5>
+          <button id="addPositionBtn" class="btn btn-sm btn-success">Add Position</button>
+        </div>
+        <div id="positionsTableContainer"></div>
+      </section>
+
+      <section id="departmentsSection" class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h5>Departments</h5>
+          <button id="addDepartmentBtn" class="btn btn-sm btn-success">Add Department</button>
+        </div>
+        <div id="departmentsTableContainer"></div>
+      </section>
+
+      <hr>
+      <small class="text-muted">Note: User management pages and DB migrations will be connected from Laravel controllers.</small>
+    </main>
+
+    <script type="module" src="../js/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  <!--
+    Laravel migration notes:
+    - Convert sections into Blade components (e.g., `components/table.blade.php`).
+    - Replace fetch() calls with axios or `@json()`-populated data.
+    - Controllers: `Admin\\EmployeeController`, `PositionController`, `DepartmentController`.
+  -->
+</html>
